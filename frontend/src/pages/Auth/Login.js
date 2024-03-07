@@ -21,15 +21,13 @@ const Login = () => {
   const {loading, error} = useSelector((state) => state.auth);
 
   const handleSubmit = (e) => {
-    e.preventDeafault();
+    e.preventDefault();
 
     const user = {
       email,
       password,
 
     };
-
-    console.log(user);
 
     dispatch(login(user));
   
@@ -39,8 +37,7 @@ const Login = () => {
 
   useEffect(() => {
     dispatch(reset());
-  }, [dispatch]);
-
+  }, ([dispatch]));
 
   return (
     <div id="login">

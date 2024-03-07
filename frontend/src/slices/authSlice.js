@@ -14,9 +14,9 @@ const initialState = {
 };
 
 // Registro um usuário e Faça o Login
-export const register = createAsyncThunk(
-  "auth/register",
+export const register = createAsyncThunk("auth/register", 
   async (user, thunkAPI) => {
+    
     const data = await authService.register(user);
 
     // Check for errors
@@ -72,31 +72,31 @@ export const authSlice = createSlice ({
           state.error = null;
           state.user = action.payload;
       })
-      .addCase(register.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        state.user = null;
+        .addCase(register.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+          state.user = null;
       })
-      .addCase(logout.fulfilled, (state, action) => {
-        state.loading = false;
-        state.success = true;
-        state.error = null;
-        state.user = null;
+        .addCase(logout.fulfilled, (state, action) => {
+          state.loading = false;
+          state.success = true;
+          state.error = null;
+          state.user = null;
       })  
-      .addCase(login.pending, (state) => {
-        state.loading = true;
-        state.error = false;
+        .addCase(login.pending, (state) => {
+          state.loading = true;
+          state.error = false;
       })
-      .addCase(login.fulfilled, (state, action) => {
-        state.loading = false;
-        state.success = true;
-        state.error = null;
-        state.user = action.payload;
+        .addCase(login.fulfilled, (state, action) => {
+          state.loading = false;
+          state.success = true;
+          state.error = null;
+          state.user = action.payload;
       })
-      .addCase(login.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        state.user = null;
+        .addCase(login.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+          state.user = null;
       });
     },
   });

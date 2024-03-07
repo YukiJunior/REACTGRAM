@@ -28,7 +28,7 @@ const register = async (req, res) => {
   const user = await User.findOne({ email });
 
   if(user) {
-    res.status(422).json({erros: ["Por favor, utilize outro e-mail."]});
+    res.status(422).json({errors: ["Por favor, utilize outro e-mail."]});
 
     return;
 
@@ -50,7 +50,7 @@ const register = async (req, res) => {
   // Gera um Token;
   if (!newUser) {
     res.status(422).json({
-      erros: ["Houve um erro, por favor tente mais tarde."]
+      errors: ["Houve um erro, por favor tente mais tarde."],
     });
     return;
   }
@@ -94,9 +94,7 @@ const login = async(req, res) => {
     profileImage: user.profileImage,
     token: generateToken(user._id),
   });
-}
-
-
+};
 
 //Upadate do Usuário
 const update = async (req, res) => {
@@ -162,13 +160,13 @@ const getUserById = async (req, res) => {
       // Verificando se existe o usuário
       
       if(!user) {
-        res.status(400).json({ errors: ["Usuário não encontrado"]});
+        res.status(404).json({ errors: ["Usuário não encontrado"]});
         return;
       }
       
       res.status(200).json(user);
     
-  } catch (error) {
+  }catch (error) {
     res.status(404).json({ errors: ["Usuário não encontrado"]});
     return;
     
