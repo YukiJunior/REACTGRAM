@@ -27,16 +27,16 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
+    
     dispatch(logout());
     dispatch(reset());
 
     navigate("/login");
-  }
-
+ };
 
   return (
     <nav id="nav">
-      <Link to="/">ReactGram</Link>
+      <Link to="/"><h2>ReactGram</h2></Link>
       <form id="search-form">
         <BsSearch />
         <input type="text" placeholder="Pesquisar"/>   
@@ -62,9 +62,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <span onClick={handleLogout}>
-                Sair
-              </span>
+            <span onClick={handleLogout}>Sair</span>
             </li>
           </>
         ) : (

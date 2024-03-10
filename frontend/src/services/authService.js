@@ -43,8 +43,6 @@ const login = async (data) => {
     .then((res) => res.json())
     .catch((err) => err);
 
-    console.log(res);
-
     if(res._id) { 
       localStorage.setItem("user", JSON.stringify(res))
     }

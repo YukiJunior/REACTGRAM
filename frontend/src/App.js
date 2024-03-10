@@ -15,6 +15,7 @@ import Footer from './components/Footer';
 import Home from '../src/pages/Home/Home';
 import Login from '../src/pages/Auth/Login';
 import Register from '../src/pages/Auth/Register';
+import EditProfile from './pages/EditProfile/EditProfile';
 
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
             element={auth ? <Home /> : <Navigate to="/login"/>}
             /> 
             <Route 
+            path="/profile"
+            element={auth ? <EditProfile/> : <Navigate to="/" />}
+            />
+              <Route 
             path="/login"
             element={!auth ? <Login /> : <Navigate to="/" />}
             />
