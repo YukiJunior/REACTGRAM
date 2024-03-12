@@ -16,6 +16,7 @@ import Home from '../src/pages/Home/Home';
 import Login from '../src/pages/Auth/Login';
 import Register from '../src/pages/Auth/Register';
 import EditProfile from './pages/EditProfile/EditProfile';
+import Profile from './pages/Profile/Profile';
 
 
 function App() {
@@ -40,7 +41,11 @@ function App() {
             path="/profile"
             element={auth ? <EditProfile/> : <Navigate to="/" />}
             />
-              <Route 
+            <Route 
+            path="/users/:id"
+            element={auth ? <Profile/> : <Navigate to="/" />}
+            />
+            <Route 
             path="/login"
             element={!auth ? <Login /> : <Navigate to="/" />}
             />
