@@ -19,7 +19,8 @@ const {
   loginValidation, 
   userUpdateValidation,
  } = require("../middlewares/userValidations");
-const authGuard = require("../middlewares/authGuard");
+
+ const authGuard = require("../middlewares/authGuard");
 const { imageUpload } = require("../middlewares/imageUpdate");
 
 
