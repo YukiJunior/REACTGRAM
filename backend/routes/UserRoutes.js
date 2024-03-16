@@ -1,13 +1,12 @@
 // Rotas dos Usuários
-
 const express = require("express");
 const router = express.Router();
 
 // Chamando o Controller
 const { 
   register, 
-  login, 
   getCurrentUser, 
+  login, 
   update,
   getUserById,
  } = require("../controllers/UserController");
@@ -19,19 +18,17 @@ const {
   loginValidation, 
   userUpdateValidation,
  } = require("../middlewares/userValidations");
-
- const authGuard = require("../middlewares/authGuard");
+const authGuard = require("../middlewares/authGuard");
 const { imageUpload } = require("../middlewares/imageUpdate");
 
 
 // =====> Chamando as Rotas <======
-
 // -------> Rotas que Enviam Dados: <------------- 
 router.post("/register", userCreateValidation(), validate, register);
-router.post("/login", loginValidation(), validate, login);
-
 //--------> Rota que  Carregamento Dados: <-------------
 router.get("/profile", authGuard, getCurrentUser);
+router.post("/login", loginValidation(), validate, login);
+
 
 // -------> Rota de Atualização <----------
 router.put(

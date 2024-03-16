@@ -1,5 +1,4 @@
 // --- Validação De Usuários ---
-
 const { body } = require ("express-validator");
 
 const userCreateValidation = () => {
@@ -7,7 +6,7 @@ const userCreateValidation = () => {
     body("name")
       .isString()
       .withMessage("O nome é obrigatório")
-      .isLength({min:3})
+      .isLength({ min:3 })
       .withMessage("O nome precisa ter no mínimo 3 caracteres."),
     body("email")
       .isString("email")
@@ -17,7 +16,7 @@ const userCreateValidation = () => {
     body("password")
       .isString()
       .withMessage("A senha é obrigatória.")
-      .isLength({min:5})
+      .isLength({ min:5 })
       .withMessage("A senha precisa ter no mínimo 5 caracteres."),
     body("confirmPassword")
       .isString()
@@ -63,5 +62,4 @@ module.exports = {
   userCreateValidation,
   loginValidation,
   userUpdateValidation,
-
 };

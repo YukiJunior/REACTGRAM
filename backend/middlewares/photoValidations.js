@@ -1,5 +1,4 @@
 // Validações das Fotos
-
 const { body } = require("express-validator");
 
 const photoInsertValidation = () => {
@@ -34,9 +33,7 @@ const photoUpdateValidation = () => {
 
 const commentValidation = () => {
   return [
-    body("comment")
-    .isString()
-    .withMessage("O comentário é obrigatório."),
+    body("comment").isString().withMessage("O comentário é obrigatório."),
   ];
 };
 
